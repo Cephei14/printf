@@ -12,13 +12,16 @@ int T1_print_d(va_list print_args)
 	char *charnum;
 
 	num = va_arg(print_args, int);
-	numtest = num;
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	} numtest = num;
 	while (numtest != 0)
 	{
 		numtest /= 10;
 		nlength++;
-	}
-	charnum = (char *)malloc(nlength + 1);
+	} charnum = (char *)malloc(nlength + 1);
 	if (charnum == NULL)
 		return (1);
 	numtest = num;
@@ -41,8 +44,7 @@ int T1_print_d(va_list print_args)
 			numtest /= 10;
 			i--;
 		}
-	}
-	charnum[nlength] = '\0';
+	} charnum[nlength] = '\0';
 	write(1, charnum, nlength);
 	free(charnum);
 	return (0);

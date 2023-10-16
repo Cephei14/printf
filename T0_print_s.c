@@ -12,7 +12,10 @@ int T0_print_s(va_list print_args)
 	char *c = va_arg(print_args, char *);
 
 	if (c == NULL)
-		c = "(nill)";
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (c[i] != '\0')
 	{
 		write(1, &c[i], 1);
