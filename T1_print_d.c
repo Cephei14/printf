@@ -33,6 +33,8 @@ int T1_print_d(va_list print_args)
 		l++;
 	}
 	charnum = (char *)malloc(l + 1);
+	if (charnum == NULL)
+		return (-1);
 	numtest = num;
 	i = l - 1;
 	while (numtest > 0)
