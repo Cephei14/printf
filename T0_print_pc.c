@@ -10,5 +10,5 @@ int T0_print_pc(int n)
 {
 	n = 37;
 	write(1, &n, 1);
-	return (0);
+	return (1);
 }

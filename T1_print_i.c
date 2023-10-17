@@ -8,7 +8,7 @@
 
 int T1_print_i(va_list print_args)
 {
-	int num, numtest, nlength = 0, i, numdec;
+	int num, numtest, l = 0, i, ml = 0, numdec;
 	char *charnum;
 
 	num = va_arg(print_args, int);
@@ -20,32 +20,23 @@ int T1_print_i(va_list print_args)
 	while (numtest != 0)
 	{
 		numtest /= 10;
-		nlength++;
-	} charnum = (char *)malloc(nlength + 1);
-	if (charnum == NULL)
-		return (1);
+		l++;
+	} charnum = (char *)malloc(l + 1);
 	numtest = num;
-	if (numtest == 0)
+	i = l - 1;
+	if (numtest < 0)
 	{
-		charnum[0] = '0';
-		nlength = 1;
-	} else
+		write(1, "-", 1);
+		numtest = -numtest;
+	}
+	while (numtest > 0)
 	{
-		i = nlength - 1;
-		if (numtest < 0)
-		{
-			write(1, "-", 1);
-			numtest = -numtest;
-		}
-		while (numtest > 0)
-		{
-			numdec = numtest % 10;
-			charnum[i] = numdec + '0';
-			numtest /= 10;
-			i--;
-		}
-	} charnum[nlength] = '\0';
-	write(1, charnum, nlength);
+		numdec = numtest % 10;
+		charnum[i] = numdec + '0';
+		numtest /= 10;
+		i--;
+	} charnum[l] = '\0';
+	write(1, charnum, l);
 	free(charnum);
-	return (0);
+	return (l + ml);
 }

@@ -16,11 +16,11 @@ int T0_print_s(va_list print_args)
 		write(1, "(null)", 6);
 		return (6);
 	}
+	l = s_len(c);
 	while (c[i] != '\0')
 	{
 		write(1, &c[i], 1);
 		i++;
 	}
-	l = i;
 	return (l);
 }

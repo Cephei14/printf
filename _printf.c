@@ -32,8 +32,7 @@ int _printf(const char *format, ...)
 				{
 				if (format[i] == h[j].c)
 				{
-					h[j].ft(print_args);
-					l++;
+					l = l + h[j].ft(print_args);
 					break;
 				} j++;
 				}
