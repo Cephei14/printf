@@ -26,7 +26,7 @@ int T1_print_i(va_list print_args)
 	i = l - 1;
 	if (numtest < 0)
 	{
-		write(1, "-", 1);
+		write(1, "-", 1), ml++;
 		numtest = -numtest;
 	}
 	while (numtest > 0)
